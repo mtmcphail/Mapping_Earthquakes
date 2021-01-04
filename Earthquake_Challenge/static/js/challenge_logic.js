@@ -37,15 +37,15 @@ let baseMaps = {
 };
 
 // D1: 1. Add a 2nd layer group for the tectonic plate data.
-let allEarthquakes = new L.LayerGroup();
 let tectonicPlates = new L.LayerGroup();
+let allEarthquakes = new L.LayerGroup();
 let majorEarthquakes = new L.LayerGroup();
 
 
 // D1: 2. Add a reference to the tectonic plates group to the overlays object.
 let overlays = {
-  "Earthquakes": allEarthquakes,
   "Techtonic Plates": tectonicPlates,
+  "Earthquakes": allEarthquakes,
   "Major Earthquakes": majorEarthquakes
 };
 
@@ -73,6 +73,15 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
   // This function determines the color of the marker based on the magnitude of the earthquake.
   function getColor(magnitude) {
+    if (magnitude > 8) {
+      return "#660066";
+    }
+    if (magnitude > 7) {
+      return "#990099";
+    }
+    if (magnitude > 6) {
+      return "#cc0066";
+    }
     if (magnitude > 5) {
       return "#ea2c2c";
     }
@@ -175,7 +184,8 @@ L.geoJson(data45, {
     },
     style: styleInfo2,
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
+      layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place
+                                                             + "<br>Time Stamp: " + feature.properties.time);
     }
   }).addTo(majorEarthquakes);
 
@@ -207,9 +217,7 @@ legend.onAdd = function() {
     "#990099",
     "#660066"
     ];
-    
-
-
+  
 
 // Looping through our intervals to generate a label with a colored square for each interval.
   for (var i = 0; i < magnitudes.length; i++) {
