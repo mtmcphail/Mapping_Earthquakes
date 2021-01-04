@@ -45,6 +45,7 @@ The **Leaflet** library will be used to plot the data on a **Mapbox** map throug
 1. Additional magnitude ranges and associated colors were included in the legend to address both sets of Earthquake data: all earthquakes and major earthquakes. This allows the same 4.5 magnitude quake, for example, to have the same color on either data plot.  However, the 6 to 7, the 7 to 8, and the 8+ magnitude quakes have 3 new colors.  
 ![image4](./Earthquake_Challenge/static/images/legend.png)
 
-3.  The weight of the outline of the markers for the **Major Earthquakes** was increased from 0.5 to 2.0 so provide a little differentiation when this layer is activated.
+2.  The weight of the outline of the markers for the **Major Earthquakes** was increased from 0.5 to 2.0 so provide a little differentiation when this layer is activated.
 
-2. In addition to magnitude and locations, the time stamp of the quakes was added to the pop-up information linked to the marker for the **4.5 or greater magnitude** quake data.  *This is an area for improvement: to convert the TimeStamp to a readable date*.
+3. In addition to magnitude and locations, the time stamp of the quakes was added to the pop-up information linked to the marker for the **4.5 or greater magnitude** quake data.  *This is an area for improvement: to convert the TimeStamp to a readable date*.
+![image4](./Earthquake_Challenge/static/images/timestamp.png)
